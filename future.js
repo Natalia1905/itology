@@ -1,0 +1,1 @@
+/* Animación pesada retirada para evitar parpadeo y carga de GPU. */

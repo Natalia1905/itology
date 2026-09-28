@@ -1,0 +1,6 @@
+node_modules
+dist
+.vite
+tmp-refs
+scripts/screenshots
+.DS_Store

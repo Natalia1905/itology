@@ -1,0 +1,171 @@
+.intro-lock,
+.intro-lock body {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.intro-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #000;
+}
+
+.site-header:not(.is-revealed) .main-nav,
+.site-header:not(.is-revealed) .nav-highlight,
+.site-header:not(.is-revealed) .menu-toggle {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.site-header.is-revealed .main-nav,
+.site-header.is-revealed .nav-highlight,
+.site-header.is-revealed .menu-toggle {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.intro-stage {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.logo,
+.logo-text {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.animated-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.logo-mark {
+  display: block;
+  width: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 12px rgba(26, 140, 255, 0.35));
+}
+
+.animated-logo.is-stage .logo-mark {
+  height: clamp(52px, 10vw, 88px);
+}
+
+.animated-logo.is-header .logo-mark {
+  height: 36px;
+}
+
+.logo-y-arm {
+  stroke: #1a8cff;
+}
+
+.logo-glint {
+  filter: drop-shadow(0 0 3px #1a8cff);
+}
+
+.intro-overlay .logo-it-wrap,
+.intro-overlay .logo-logy-wrap {
+  opacity: 0;
+}
+
+.logo-o-glow,
+.logo-o-burst,
+.logo-o-flares {
+  opacity: 0;
+}
+
+.logo-o-draw {
+  filter: drop-shadow(0 0 5px rgba(26, 140, 255, 0.4));
+}
+
+.logo-o.is-lit .logo-o-draw {
+  filter:
+    drop-shadow(0 0 3px #fff)
+    drop-shadow(0 0 8px rgba(26, 140, 255, 0.45))
+    drop-shadow(0 0 16px rgba(11, 95, 191, 0.35));
+}
+
+.logo-o.is-lit .logo-o-glow,
+.logo-o.is-lit .logo-o-flares {
+  opacity: 1;
+}
+
+.brand-slot {
+  display: flex;
+  align-items: center;
+  min-width: 260px;
+  min-height: 42px;
+}
+
+.lava-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.site-header .main-nav,
+.site-header .nav-highlight,
+.site-header .menu-toggle {
+  will-change: opacity, transform;
+}
+
+.is-waiting .hero-copy,
+.is-waiting .section,
+.is-waiting .cta-band,
+.is-waiting .site-footer {
+  opacity: 0;
+}
+
+html,
+body,
+#root {
+  overflow-x: hidden;
+  background: #000;
+}
+
+@media (max-width: 700px) {
+  .animated-logo.is-header .logo-mark {
+    height: 26px;
+  }
+
+  .brand-slot {
+    min-width: 168px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header.is-revealed .main-nav,
+  .site-header.is-revealed .nav-highlight,
+  .site-header.is-revealed .menu-toggle,
+  .hero-copy.show {
+    transition-duration: 0.2s;
+  }
+}
